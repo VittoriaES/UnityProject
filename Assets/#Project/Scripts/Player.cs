@@ -6,10 +6,15 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public CanvasBehaviour canvas;
 
     private float horizontal;
     private float speed = 10f;
     private bool isFacingRight = true;
+
+    private bool pickableObject = true;
+    private bool isCanvasActive = false;
+    private bool isNotReading = true;
 
     public Door door = null;
 
@@ -30,15 +35,22 @@ public class Player : MonoBehaviour
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+        if (isNotReading)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
+        if(isNotReading)
+        {
+            horizontal = context.ReadValue<Vector2>().x;
+        }
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -48,21 +60,49 @@ public class Player : MonoBehaviour
             door.DoorChangeScene();      
         }
     }
+
+    public void PickUp(InputAction.CallbackContext context)
+    {
+        Debug.Log("Picking up!!");
+
+        if(pickableObject == false){
+            canvas.showCanvas();
+            isNotReading = false;
+            isCanvasActive = true;
+            Debug.Log("Canvas showing up");
+            pickableObject = true;
+
+        }
+
+    }
+
+    public void ExitCanvas(InputAction.CallbackContext context)
+    {
+        if (isCanvasActive == true)
+        {
+            Debug.Log("Canvas is removed");
+            canvas.hideCanvas();
+            isCanvasActive = false;
+            isNotReading = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Object"))
+        {
+            Debug.Log("Can be picked up");
+            pickableObject = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("Object"))
+        {
+            Debug.Log("Cannot be picked up anymore");
+            pickableObject = true;
+        }
+    }
 }
-
-// TODO Pick up objects
-// * when you pick up an object overimpose a canvas that will show:
-// * 1. name
-// * 2. small description
-// * 3. object zoomed in to show it better
-
-// * give the player the time to read
-// * only hide the canvas once the player presses another button
-
-// TODO Get closer to view areas
-// * Press a button to examine an area, overimpose a new canvas that shows:
-// * Zoomed in area with the various objects lying around
-// * Make objects interactable(UP-DOWN arrows to choose objects)
-// * Find a way to highlight the object (make it slightly bigger?)
 
 
