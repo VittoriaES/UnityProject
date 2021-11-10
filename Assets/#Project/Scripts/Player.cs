@@ -12,9 +12,16 @@ public class Player : MonoBehaviour
     private float speed = 10f;
     private bool isFacingRight = true;
 
+    public InventoryObject inventory;
+    public Item itemTBP;
+
     private bool pickableObject = true;
     private bool isCanvasActive = false;
     private bool isNotReading = true;
+
+    public ItemViewController itemViewController;
+
+    
 
     public Door door = null;
 
@@ -65,12 +72,15 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Picking up!!");
 
-        if(pickableObject == false){
+        if(pickableObject == false && itemTBP){
             canvas.showCanvas();
             isNotReading = false;
             isCanvasActive = true;
             Debug.Log("Canvas showing up");
             pickableObject = true;
+            inventory.AddItem(itemTBP.item, 1);
+            itemViewController.UpdateDisplay();
+            Destroy(itemTBP);
 
         }
 
@@ -89,11 +99,14 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Object"))
+        var item = other.GetComponent<Item>();
+        if (item)
         {
-            Debug.Log("Can be picked up");
+            Debug.Log("Item can be picked up");
             pickableObject = false;
+            itemTBP = item;
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D other) {
