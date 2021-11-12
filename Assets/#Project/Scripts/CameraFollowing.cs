@@ -8,13 +8,16 @@ public class CameraFollowing : MonoBehaviour
     private float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
 
-    [SerializeField] private Transform target;
+    public Player player;
 
+    private void Start() {
+        player = FindObjectOfType<Player>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetPosition = target.position + offset;
+        Vector3 targetPosition = player.transform.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }

@@ -14,11 +14,7 @@ public class ItemViewController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // foreach (var item in inventory.Container)
-        // {
-        //     var itemGO = GameObject.Instantiate(itemViewPrefab, inventoryViewParent);
-        //     itemGO.GetComponent<ItemView>().InitItem(item);
-        // }
+
     }
 
     void Update()
@@ -37,6 +33,7 @@ public class ItemViewController : MonoBehaviour
         }
     }
 
+    // ! WHERE TO CALL THE UPDATE DISPLAY WHEN YOU CHANGE SCENES
     public void UpdateDisplay()
     {
         for (int i = 0; i < inventory.Container.Count; i++)
@@ -50,12 +47,4 @@ public class ItemViewController : MonoBehaviour
        } 
     }
 
-    // public void UpdateDisplay()
-    // {
-    //     for (int i = 0; i< inventory.Container.Count; i++)
-    //     {
-    //         var itemGO = GameObject.Instantiate(itemViewPrefab, inventoryViewParent);
-    //         itemGO.GetComponent<ItemView>().InitItem(inventory.Container[i]);
-    //     }
-    // }
 }

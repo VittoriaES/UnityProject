@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
     public Rigidbody2D rb;
     public CanvasBehaviour canvas;
 
@@ -19,11 +20,21 @@ public class Player : MonoBehaviour
     private bool isCanvasActive = false;
     private bool isNotReading = true;
 
+    private bool canOpenDoor = false;
+
     public ItemViewController itemViewController;
 
-    
-
     public Door door = null;
+
+    private void Awake() {
+        if(instance == null){
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -63,9 +74,16 @@ public class Player : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
         Debug.Log("Interacting");
-        if(door != null){
-            door.DoorChangeScene();      
+        if (door != null &&  canOpenDoor)
+        {
+            door.DoorChangeScene();
+            itemViewController.UpdateDisplay();
         }
+        if (door != null &&  !canOpenDoor)
+        {
+            Debug.Log("You cannot open the door!");
+        }
+
     }
 
     public void PickUp(InputAction.CallbackContext context)
@@ -77,10 +95,11 @@ public class Player : MonoBehaviour
             isNotReading = false;
             isCanvasActive = true;
             Debug.Log("Canvas showing up");
-            pickableObject = true;
+            //pickableObject = true;
             inventory.AddItem(itemTBP.item, 1);
             itemViewController.UpdateDisplay();
-            Destroy(itemTBP);
+            Destroy(itemTBP.gameObject);
+            Debug.Log("object destroyed");
 
         }
 
@@ -99,7 +118,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var item = other.GetComponent<Item>();
+        Item item = other.GetComponent<Item>();
         if (item)
         {
             Debug.Log("Item can be picked up");
@@ -107,6 +126,19 @@ public class Player : MonoBehaviour
             itemTBP = item;
         }
 
+        Door door = other.GetComponent<Door>();
+        if (door)
+        {
+            for (int i = 0; i < inventory.Container.Count; i++)
+            {   
+                if (inventory.Container[i].item.itemName == "FrontDoorKey")
+                {
+                    canOpenDoor = true;
+                    Debug.Log("Door can be opened!!");
+                    break;
+                }
+            }
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D other) {

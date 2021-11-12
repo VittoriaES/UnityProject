@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 76721713214d156488faad92ac1442be, type: 3}
+  zoomedIcon: {fileID: 21300000, guid: 2094a4764ea6a74468025e0611dc0d94, type: 3}
   type: 0
-  itemName: Key
+  itemName: FrontDoorKey
+  displayName: Key
   description: Key to open the front door, it's rusty as Hell but if you use enough
     force it works just fine. You should probably change it but you can't be bothered
     to do so.
