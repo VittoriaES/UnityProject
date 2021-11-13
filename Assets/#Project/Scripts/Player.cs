@@ -95,7 +95,6 @@ public class Player : MonoBehaviour
             isNotReading = false;
             isCanvasActive = true;
             Debug.Log("Canvas showing up");
-            //pickableObject = true;
             inventory.AddItem(itemTBP.item, 1);
             itemViewController.UpdateDisplay();
             Destroy(itemTBP.gameObject);

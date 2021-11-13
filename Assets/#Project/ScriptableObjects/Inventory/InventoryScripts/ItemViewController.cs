@@ -33,7 +33,6 @@ public class ItemViewController : MonoBehaviour
         }
     }
 
-    // ! WHERE TO CALL THE UPDATE DISPLAY WHEN YOU CHANGE SCENES
     public void UpdateDisplay()
     {
         for (int i = 0; i < inventory.Container.Count; i++)
