@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
 
     public InventoryObject inventory;
     public Item itemTBP;
-    public Item itemTBR;
 
     private bool pickableObject = true;
     private bool isCanvasActive = false;
@@ -131,6 +130,7 @@ public class Player : MonoBehaviour
             Debug.Log("Item can be picked up");
             pickableObject = false;
             itemTBP = item;
+            Debug.Log("the item can be added");
         }
 
         Door door = other.GetComponent<Door>();

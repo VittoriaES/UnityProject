@@ -1400,6 +1400,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6057100571054291020, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057100571054291020, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057100571054291020, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057100571054291020, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057100571054291020, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6057100571054291022, guid: 30e0f63ec1671fd42a880999e8299f86, type: 3}
       propertyPath: m_Name
       value: Randy

@@ -42,8 +42,4 @@ public class InventorySlot
     {
         amount += value;
     }
-    public void RemoveAmount(int value)
-    {
-        amount -= value;
-    }
 }
