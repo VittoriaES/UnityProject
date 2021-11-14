@@ -43,7 +43,8 @@ public class ItemViewController : MonoBehaviour
                 itemGO.GetComponent<ItemView>().InitItem(inventory.Container[i]);
                 itemsDisplayed.Add(inventory.Container[i], itemGO);
            }
-       } 
+       }
+
     }
 
 }

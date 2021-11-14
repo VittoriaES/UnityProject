@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public InventoryObject inventory;
     public Item itemTBP;
+    public Item itemTBR;
 
     private bool pickableObject = true;
     private bool isCanvasActive = false;
@@ -77,6 +78,13 @@ public class Player : MonoBehaviour
         if (door != null &&  canOpenDoor)
         {
             door.DoorChangeScene();
+            for (int i = 0; i < inventory.Container.Count; i++)
+            {
+                if (inventory.Container[i].item.itemName == "FrontDoorKey")
+                {
+                    inventory.Container.RemoveAt(i);
+                }
+            }
             itemViewController.UpdateDisplay();
         }
         if (door != null &&  !canOpenDoor)
