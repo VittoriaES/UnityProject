@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6057100571054291016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6057100571054291020}
-  canvas: {fileID: 4883616872266267202, guid: 3dd259f52f47e2e478815a49717820c9, type: 3}
+  canvas: {fileID: 0}
   inventory: {fileID: 11400000, guid: caa15cc57f64b8a4f8b335b8c45453cb, type: 2}
   itemTBP: {fileID: 0}
-  itemViewController: {fileID: 3547819430440590289, guid: 7caafae8f3a06204c9e7e8b46796a2e0, type: 3}
+  itemViewController: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &6057100571054291023
 MonoBehaviour:
