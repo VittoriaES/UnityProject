@@ -21,10 +21,12 @@ public class Player : MonoBehaviour
     private bool isNotReading = true;
 
     private bool canOpenDoor = false;
+    private bool canPetDog = false;
 
     public ItemViewController itemViewController;
 
     public Door door = null;
+    public Dog dog = null;
 
     private void Awake() {
         if(instance == null){
@@ -90,6 +92,11 @@ public class Player : MonoBehaviour
         {
             Debug.Log("You cannot open the door!");
         }
+        if (canPetDog == true)
+        {
+            Debug.Log("I am petting the dog");
+            dog.Pet();
+        }
 
     }
 
@@ -146,7 +153,14 @@ public class Player : MonoBehaviour
                     break;
                 }
             }
-        }        
+        }
+
+        Dog dog = other.GetComponent<Dog>();
+        if (dog)
+        {
+            Debug.Log("Can pet Dog");
+            canPetDog = true;
+        }       
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -154,6 +168,11 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Cannot be picked up anymore");
             pickableObject = true;
+        }
+
+        if(other.CompareTag("Dog"))
+        {
+            canPetDog = false;
         }
     }
 }
