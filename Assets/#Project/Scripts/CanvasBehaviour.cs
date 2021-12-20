@@ -7,14 +7,17 @@ using TMPro;
 public class CanvasBehaviour : MonoBehaviour
 {
     public GameObject canvasItem;
+    public GameObject canvasTip;
 
     public Player player;
 
     public TMP_Text textName;
     public TMP_Text textDescription;
 
-    public Image itemZoom;
+    public GameObject textInteract;
+    public GameObject textPickUp;
 
+    public Image itemZoom;
 
     public void showCanvas()
     {
@@ -29,4 +32,30 @@ public class CanvasBehaviour : MonoBehaviour
     {
         canvasItem.SetActive(false);
     }
+
+    public void showTipInteract()
+    {
+        canvasTip.SetActive(true);
+        textInteract.SetActive(true);
+    }
+
+    public void hideTipInteract()
+    {
+        canvasTip.SetActive(false);
+        textInteract.SetActive(false);
+    }
+
+        public void showTipPickUp()
+    {
+        canvasTip.SetActive(true);
+        textPickUp.SetActive(true);
+    }
+
+    public void hideTipPickUp()
+    {
+        canvasTip.SetActive(false);
+        textPickUp.SetActive(false);
+    }
+    
+
 }

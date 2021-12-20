@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public CanvasBehaviour canvas;
 
+    public CanvasBehaviour canvasTip;
+
     private float horizontal;
     private float speed = 10f;
     private bool isFacingRight = true;
@@ -143,7 +145,9 @@ public class Player : MonoBehaviour
 
         Door door = other.GetComponent<Door>();
         if (door)
-        {
+        {   
+            canvasTip.showTipInteract();
+
             for (int i = 0; i < inventory.Container.Count; i++)
             {   
                 if (inventory.Container[i].item.itemName == "FrontDoorKey")
@@ -158,6 +162,7 @@ public class Player : MonoBehaviour
         Dog dog = other.GetComponent<Dog>();
         if (dog)
         {
+            canvasTip.showTipInteract();
             Debug.Log("Can pet Dog");
             canPetDog = true;
         }       
@@ -165,15 +170,25 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Object"))
-        {
+        {   
             Debug.Log("Cannot be picked up anymore");
             pickableObject = true;
         }
 
+        if(other.CompareTag("Door"))
+        {
+            Debug.Log("Cannot interact with door");
+            canvasTip.hideTipInteract();
+        }
+
+
         if(other.CompareTag("Dog"))
         {
             canPetDog = false;
+            canvasTip.hideTipInteract();
         }
+
+
     }
 }
 

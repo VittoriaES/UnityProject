@@ -155,14 +155,19 @@ MonoBehaviour:
   textDisplayed: {fileID: 1346501263}
   imageDisplayed: {fileID: 1676552987}
   introSentences:
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis, erat
-    id tempus accumsan, felis odio mattis ante, a tristique lorem enim et augue.
-  - Integer vitae velit pharetra, vestibulum risus sed, porttitor erat.
-  - Integer ac gravida mauris. Sed euismod auctor nibh sit amet porttitor.
+  - I miss mom and pops so much. I should probably go visit their graves one of these
+    days...
+  - Is there even a point though? I was always a fucken' disappointment to them
+  - Not like I could have ever done a thing to make 'em happy, I was a damn nightmare
+    as a child and a lazy ass son with no ambition or drive in life  according to
+    them.
+  - I'm tired of wanting more, I think I'm finally worn... I got little Lucy with
+    me and a roof over my head, shit's enough to keep me going for now at least.
   introImages:
   - {fileID: 21300000, guid: 40f4fb23b04acca48ae9cfa5675c1880, type: 3}
-  - {fileID: 21300000, guid: 14663a2634c22f44a98d6b6f7c57da37, type: 3}
-  - {fileID: 21300000, guid: d14dfd3c748a7ea428038691a62613cc, type: 3}
+  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
+  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
+  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
   index: 0
   imageIndex: 0
   typingSpeed: 0.01
@@ -343,7 +348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wake up
+  m_text: Wake Up
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 734f7bed4493d37449ad4d9434e95995, type: 2}
   m_sharedMaterial: {fileID: 5865633470605074591, guid: 734f7bed4493d37449ad4d9434e95995,
@@ -512,7 +517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237, y: -215}
+  m_AnchoredPosition: {x: -271, y: -346.5}
   m_SizeDelta: {x: 180, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1346501263
@@ -563,8 +568,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -599,7 +604,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 30.671371, y: 6.345825, z: -281.33044, w: 159.70265}
+  m_margin: {x: -40.094727, y: 79.85745, z: -317.97717, w: 173.43448}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -955,7 +960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 313, y: -157}
+  m_AnchoredPosition: {x: 341.15, y: -165.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140997321
@@ -1037,7 +1042,8 @@ MonoBehaviour:
   m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 734f7bed4493d37449ad4d9434e95995, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 5865633470605074591, guid: 734f7bed4493d37449ad4d9434e95995,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1061,8 +1067,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

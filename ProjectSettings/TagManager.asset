@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - Dog
+  - Door
   layers:
   - Default
   - TransparentFX
