@@ -9,6 +9,8 @@ public class CanvasBehaviour : MonoBehaviour
     public GameObject canvasItem;
     public GameObject canvasTip;
 
+    public GameObject canvasQTE;
+
     public Player player;
 
     public TMP_Text textName;
@@ -45,7 +47,7 @@ public class CanvasBehaviour : MonoBehaviour
         textInteract.SetActive(false);
     }
 
-        public void showTipPickUp()
+    public void showTipPickUp()
     {
         canvasTip.SetActive(true);
         textPickUp.SetActive(true);
@@ -57,5 +59,13 @@ public class CanvasBehaviour : MonoBehaviour
         textPickUp.SetActive(false);
     }
     
+    public void startQTE()
+    {
+        canvasQTE.SetActive(true);
+    }
 
+    public void endQTE()
+    {
+        canvasQTE.SetActive(false);
+    }
 }

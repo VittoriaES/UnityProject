@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     public static Player instance;
     public Rigidbody2D rb;
     public CanvasBehaviour canvas;
-
     public CanvasBehaviour canvasTip;
+    public CanvasBehaviour canvasQTE;
 
     private float horizontal;
     private float speed = 10f;
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     public Door door = null;
     public Dog dog = null;
+    public Zombie zombie = null;
 
     private void Awake() {
         if(instance == null){
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+
     }
 
     private void Flip()
@@ -137,6 +139,7 @@ public class Player : MonoBehaviour
         Item item = other.GetComponent<Item>();
         if (item)
         {
+            canvasTip.showTipPickUp();
             Debug.Log("Item can be picked up");
             pickableObject = false;
             itemTBP = item;
@@ -165,12 +168,21 @@ public class Player : MonoBehaviour
             canvasTip.showTipInteract();
             Debug.Log("Can pet Dog");
             canPetDog = true;
-        }       
+        } 
+
+        Zombie zombie = other.GetComponent<Zombie>();
+        if (zombie)
+        {   
+            Debug.Log("Near zombie");
+            isNotReading = false;
+            canvasQTE.startQTE();
+        }     
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Object"))
         {   
+            canvasTip.hideTipPickUp();
             Debug.Log("Cannot be picked up anymore");
             pickableObject = true;
         }
