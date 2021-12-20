@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
     public Rigidbody2D rb;
+    public CanvasBehaviour canvasMenu;
     public CanvasBehaviour canvas;
     public CanvasBehaviour canvasTip;
     public CanvasBehaviour canvasQTE;
+    public CanvasBehaviour canvasFinalChoice;
+    public SceneChanger sceneChanger;
 
     private float horizontal;
     private float speed = 10f;
@@ -24,12 +27,15 @@ public class Player : MonoBehaviour
 
     private bool canOpenDoor = false;
     private bool canPetDog = false;
+    private bool canMakeFinalChoice = false;
+    private bool menuOpened = false;
 
     public ItemViewController itemViewController;
 
     public Door door = null;
     public Dog dog = null;
     public Zombie zombie = null;
+    public Porch porch = null;
 
     private void Awake() {
         if(instance == null){
@@ -45,6 +51,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+        if (!isNotReading)
+        {
+            horizontal = 0f;
+        }
 
         if (!isFacingRight && horizontal > 0f) 
         {
@@ -71,10 +82,7 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if(isNotReading)
-        {
-            horizontal = context.ReadValue<Vector2>().x;
-        }
+        horizontal = context.ReadValue<Vector2>().x;
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -92,14 +100,23 @@ public class Player : MonoBehaviour
             }
             itemViewController.UpdateDisplay();
         }
+
         if (door != null &&  !canOpenDoor)
         {
             Debug.Log("You cannot open the door!");
         }
+
         if (canPetDog == true)
         {
             Debug.Log("I am petting the dog");
             dog.Pet();
+        }
+
+        if (porch != null && canMakeFinalChoice)
+        {
+            Debug.Log("Can make final choice");
+            canvasFinalChoice.showFinalChoice();
+            isNotReading = false;
         }
 
     }
@@ -133,6 +150,28 @@ public class Player : MonoBehaviour
             isNotReading = true;
         }
     }
+
+    public void Menu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Menu button pressed");
+            if (menuOpened == false)
+            {
+                canvasMenu.showMenu();
+                menuOpened = true;
+                Time.timeScale = 0f;
+            }
+            else 
+            {
+                canvasMenu.hideMenu();
+                menuOpened = false;
+                Time.timeScale = 1f;
+            }
+        }
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -174,8 +213,15 @@ public class Player : MonoBehaviour
         if (zombie)
         {   
             Debug.Log("Near zombie");
-            isNotReading = false;
             canvasQTE.startQTE();
+            isNotReading = false;
+        }
+
+        Porch porch = other.GetComponent<Porch>();
+        if (porch)
+        {
+            Debug.Log("Near porch");
+            canMakeFinalChoice = true;           
         }     
     }
 
@@ -193,13 +239,23 @@ public class Player : MonoBehaviour
             canvasTip.hideTipInteract();
         }
 
-
         if(other.CompareTag("Dog"))
         {
             canPetDog = false;
             canvasTip.hideTipInteract();
         }
 
+        if (zombie)
+        {   
+            canvasQTE.endQTE();
+            isNotReading = true;
+        }
+
+        if (porch)
+        {
+            Debug.Log("Away from porch");
+            canMakeFinalChoice = false;
+        }
 
     }
 }

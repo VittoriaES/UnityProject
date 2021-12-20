@@ -35,7 +35,15 @@
                     "id": "b5f1444b-3476-46ee-a0b8-21d11b459797",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "2237a173-074d-45f8-86b4-22af7e397165",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1,behavior=1)"
                 }
             ],
             "bindings": [
@@ -201,6 +209,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ExitCanvas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "94a4e081-9de5-4220-99a8-e18a5e6c4da9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

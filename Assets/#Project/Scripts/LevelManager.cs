@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
         CanvasBehaviour canvas = FindObjectOfType<CanvasBehaviour>(includeInactive:true);
         CanvasBehaviour canvasTips = FindObjectOfType<CanvasBehaviour>(includeInactive:true);
         CanvasBehaviour canvasQTE = FindObjectOfType<CanvasBehaviour>(includeInactive:true);
+        CanvasBehaviour canvasFinalChoice = FindObjectOfType<CanvasBehaviour>(includeInactive:true);
+        CanvasBehaviour canvasMenu = FindObjectOfType<CanvasBehaviour>(includeInactive:true);
         ItemViewController itemViewController = FindObjectOfType<ItemViewController>();
         Player player = FindObjectOfType<Player>();
 
@@ -53,6 +55,16 @@ public class LevelManager : MonoBehaviour
             Debug.LogError("There is no CanvasBehaviour in this scene");
             return;
         }
+        if (canvasFinalChoice == null)
+        {
+            Debug.LogError("There is no CanvasBehaviour in this scene");
+            return;
+        }
+        if (canvasMenu == null)
+        {
+            Debug.LogError("There is no CanvasBehaviour in this scene");
+            return;
+        }
         if (itemViewController == null)
         {
             Debug.LogError("There is no ItemViewController in this scene");
@@ -62,6 +74,8 @@ public class LevelManager : MonoBehaviour
         player.canvas = canvas;
         player.canvasTip = canvasTips;
         player.canvasQTE = canvasQTE;
+        player.canvasFinalChoice = canvasFinalChoice;
+        player.canvasMenu = canvasMenu;
         canvas.player = player;
         player.itemViewController = itemViewController;
 

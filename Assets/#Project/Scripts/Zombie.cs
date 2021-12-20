@@ -19,4 +19,10 @@ public class Zombie : MonoBehaviour
             other.GetComponent<Player>().zombie = null;
         }
     }
+
+    public void DestroyTrigger()
+    {
+        Debug.Log("I am dying lalala");
+        Destroy(GetComponent<BoxCollider2D>());      
+    }
 }

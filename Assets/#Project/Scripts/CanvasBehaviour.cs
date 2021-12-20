@@ -8,8 +8,9 @@ public class CanvasBehaviour : MonoBehaviour
 {
     public GameObject canvasItem;
     public GameObject canvasTip;
-
     public GameObject canvasQTE;
+    public GameObject canvasFinalChoice;
+    public GameObject canvasMenu;
 
     public Player player;
 
@@ -21,6 +22,14 @@ public class CanvasBehaviour : MonoBehaviour
 
     public Image itemZoom;
 
+    public void showMenu()
+    {
+        canvasMenu.SetActive(true);
+    }
+    public void hideMenu()
+    {
+        canvasMenu.SetActive(false);
+    }
     public void showCanvas()
     {
         canvasItem.SetActive(true);
@@ -67,5 +76,14 @@ public class CanvasBehaviour : MonoBehaviour
     public void endQTE()
     {
         canvasQTE.SetActive(false);
+    }
+
+    public void showFinalChoice()
+    {
+        canvasFinalChoice.SetActive(true);
+    }
+    public void hideFinalChoice()
+    {
+        canvasFinalChoice.SetActive(false);
     }
 }
