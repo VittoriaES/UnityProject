@@ -16,7 +16,7 @@ MonoBehaviour:
   zoomedIcon: {fileID: 21300000, guid: 2094a4764ea6a74468025e0611dc0d94, type: 3}
   type: 0
   itemName: FrontDoorKey
-  displayName: Key
+  displayName: Front Door Key
   description: Key to open the front door, it's rusty as Hell but if you use enough
     force it works just fine. You should probably change it but you can't be bothered
     to do so.

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd03ca8e80537bb4aa06ac127445f282, type: 3}
-  m_Name: Medkit
+  m_Name: Photo
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 30fe3bab7825d5849aadc9a081bc5826, type: 3}
+  icon: {fileID: 0}
+  zoomedIcon: {fileID: 0}
   type: 1
-  itemName: HealItem
-  displayName: Bandages
-  description: Your mother was obsessed with having something to patch yourself up
-    just in case something happened to you or your father while you were out hunting,
-    best to take it just in case.
+  itemName: Photo
+  displayName: Family Photo
+  description: Must have costed my parents a damn fortune to get this, I was still
+    a baby back then, those were the real good times...

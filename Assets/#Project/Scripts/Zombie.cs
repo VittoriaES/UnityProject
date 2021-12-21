@@ -23,6 +23,7 @@ public class Zombie : MonoBehaviour
     public void DestroyTrigger()
     {
         Debug.Log("I am dying lalala");
-        Destroy(GetComponent<BoxCollider2D>());      
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(gameObject);      
     }
 }

@@ -161,13 +161,14 @@ MonoBehaviour:
   - Not like I could have ever done a thing to make 'em happy, I was a damn nightmare
     as a child and a lazy ass son with no ambition or drive in life  according to
     them.
-  - I'm tired of wanting more, I think I'm finally worn... I got little Lucy with
+  - I'm tired of wanting more, I think I'm finally worn... I got little Raider with
     me and a roof over my head, shit's enough to keep me going for now at least.
+    I should head to the town for food.
   introImages:
   - {fileID: 21300000, guid: 40f4fb23b04acca48ae9cfa5675c1880, type: 3}
-  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
-  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
-  - {fileID: 21300000, guid: 636ff4038a532974db3e476fd50a0860, type: 3}
+  - {fileID: 21300000, guid: 14663a2634c22f44a98d6b6f7c57da37, type: 3}
+  - {fileID: 21300000, guid: d14dfd3c748a7ea428038691a62613cc, type: 3}
+  - {fileID: 21300000, guid: 37d5f866f8c6cec479634780ed4ee4dd, type: 3}
   index: 0
   imageIndex: 0
   typingSpeed: 0.01
@@ -985,7 +986,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.73883694, b: 0.4575472, a: 1}
+    m_HighlightedColor: {r: 0.8584906, g: 0.49149388, b: 0.10258684, a: 1}
     m_PressedColor: {r: 1, g: 0.7372549, b: 0.45882356, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

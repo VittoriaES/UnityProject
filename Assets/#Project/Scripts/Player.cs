@@ -220,6 +220,7 @@ public class Player : MonoBehaviour
         Porch porch = other.GetComponent<Porch>();
         if (porch)
         {
+            canvasTip.showTipInteract();
             Debug.Log("Near porch");
             canMakeFinalChoice = true;           
         }     
@@ -253,6 +254,7 @@ public class Player : MonoBehaviour
 
         if (porch)
         {
+            canvasTip.hideTipInteract();
             Debug.Log("Away from porch");
             canMakeFinalChoice = false;
         }
