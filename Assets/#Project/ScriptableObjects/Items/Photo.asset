@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd03ca8e80537bb4aa06ac127445f282, type: 3}
   m_Name: Photo
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  zoomedIcon: {fileID: 0}
+  icon: {fileID: 21300000, guid: be9758199abd18a4193872bd330c0cc0, type: 3}
+  zoomedIcon: {fileID: 21300000, guid: be9758199abd18a4193872bd330c0cc0, type: 3}
   type: 1
   itemName: Photo
   displayName: Family Photo
